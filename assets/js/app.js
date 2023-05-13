@@ -99,7 +99,7 @@ const errorContent = document.querySelector("[data-error-content]");
 export const updateWeather = function (lat, lon) {
     loading.style.display = "grid";
     container.style.overflowY = "hidden";
-    container.classList.contains("fade-in") ?? container.classList.remove("fade-in");
+     container.classList.remove("fade-in");
     errorContent.style.display = "none";
 
     const currentWeatherSection = document.querySelector("[data-current-weather]");
@@ -137,7 +137,8 @@ export const updateWeather = function (lat, lon) {
         const card = document.createElement("div");
         card.classList.add("card", "card-lg", "current-weather-card");
 
-        card.innerHTML =`
+        card.innerHTML =  `
+        
                 <h2 class="title-2 card-title">Now</h2>
                 <div class="weaper">
                     <p class="heading">${parseInt(temp)}&deg;<sup>c</sup></p>
@@ -174,3 +175,4 @@ export const updateWeather = function (lat, lon) {
 
 }
 
+export const error404 = function () { }
