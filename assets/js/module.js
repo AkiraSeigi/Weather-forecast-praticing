@@ -36,7 +36,7 @@ export const monthNames = [
 */
 
 export const getDate = function (dateUnix, timezone) {
-    const data = new Date((dateUnix + timezone) * 1000);
+    const date = new Date((dateUnix + timezone) * 1000);
     const weekDayName = weekDayNames[date.getUTCDay()];
     const monthName = monthNames[date.getUTCMonth()];
 
@@ -51,7 +51,7 @@ export const getDate = function (dateUnix, timezone) {
 */
 
 export const getTime= function (timeUnix, timezone) {
-    const data= new Date((timeUnix +timezone) * 1000);
+    const date= new Date((timeUnix +timezone) * 1000);
     const hours = date.getUTCHours();
     const minutes = date.getUTCMinutes();
     const period = hours >= 12 ? "PM" : "AM";
@@ -67,11 +67,11 @@ export const getTime= function (timeUnix, timezone) {
 */
 
 export const getHours= function (timeUnix, timezone) {
-    const data= new Date((timeUnix +timezone) * 1000);
+    const date= new Date((timeUnix +timezone) * 1000);
     const hours = date.getUTCHours();
     const period = hours >= 12 ? "PM" : "AM";
     
-    return`${hours % 12 || 12} ${period}`;
+    return `${hours % 12 || 12} ${period}`;
 }
 
 /*
@@ -80,8 +80,8 @@ export const getHours= function (timeUnix, timezone) {
 */
 
 export const mps_to_kmh = mps => {
-    const mph = mps *3600;
-    return mph /1000;
+    const mph = mps * 3600;
+    return mph / 1000;
 }
 
 export const aqiText = {
