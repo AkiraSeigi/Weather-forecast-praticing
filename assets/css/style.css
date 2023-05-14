@@ -91,13 +91,12 @@
   #RESET
 \*-----------------------------------*/
 
-*,
-*::before
-*::after{
+*, *::before, *::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 li {list-style: none;}
 a,
 img, 
@@ -212,7 +211,7 @@ body {
 \*-----------------------------------*/
 
 .container {
-  max-width: 1600px;
+  max-width: 1400px;
   width: 100%;
   margin-inline: auto;
   padding: 16px;
@@ -338,6 +337,13 @@ body {
 
 .label-2 {font-size: var(--label-2);}
 
+.fade-in {animation: fade-in 250ms ease forwards;}
+
+@keyframes fade-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 
 
 
@@ -349,10 +355,13 @@ body {
 
 .header .btn-primary .span {display: none;}
 
-.logo img {width: 150px;}
+.logo img {
+  margin-block-start: 10px;
+  width: 150px;}
 
 .header .container,
 .header-actions {
+  
   display: flex;
   justify-content: space-between;
 }
@@ -451,10 +460,8 @@ body {
   align-items: center;
   gap: 20px;
   padding-inline: 5px 12px;
-  margin-left: -15px;
-  line-height: 0.5em;
-  height: 4em;       /* height is 2x line-height, so two lines will display */
-  overflow: hidden; 
+ 
+  
 }
 
 .search-view .view-item :is(.m-icon, .item-subtitle) {
@@ -703,7 +710,7 @@ article.container::before {
 .slider-list {
   display: flex;
   gap: 12px;
-  margin-left: -37px;
+  margin-left: -15px;
 }
 
 .slider-list:first-child { 
@@ -771,7 +778,6 @@ margin-block-end: 16px;
   width: 100%;
   height: 100%;
   background-color: var(--background);
- 
   place-items: center;
   z-index: 1;
   display: none;
@@ -959,7 +965,7 @@ margin-block-end: 16px;
     
     .title-1 {--title-1: 3.6rem; }
 
-    .highlights-card.two .card-item { column-gap: 24px; }
+    .highlights-card.two .card-item { column-gap: 5px; }
 
     /*
       HEADER
