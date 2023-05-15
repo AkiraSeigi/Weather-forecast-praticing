@@ -7,11 +7,11 @@ import *as module from "./module.js";
 /*
     Add event listeners on multiple elements.
     @param {NodeList} elements node array
-    @param {string} eventType Event Type e.g.: "click", "mouseover"
+    @param {string} eventType Event Type e.g.: "click", "mouseover" 
     @param {function} callback Callback function
 */
 
-const addEventOnElement = function (elements, eventType, callback) {
+const addEventOnElements = function (elements, eventType, callback) {
     for (const element of elements) element.addEventListener(eventType, callback);
 }
 
@@ -23,7 +23,7 @@ const searchView = document.querySelector("[data-search-view]");
 const searchTogglers =  document.querySelectorAll("[data-search-toggler]");
 
 const toggleSearch = () => searchView.classList.toggle("active");
-addEventOnElement(searchTogglers, "click", toggleSearch);
+addEventOnElements(searchTogglers, "click", toggleSearch);
 
 /*
     SEARCH INTEGRATION
@@ -32,7 +32,7 @@ const searchField = document.querySelector("[data-search-field]");
 const searchResult = document.querySelector("[data-search-result]");
 
 let searchTimeout = null;
-const searchTimeOutDuration = 500;
+const searchTimeoutDuration = 500;
 
 searchField.addEventListener("input", function() {
     searchTimeout ?? clearTimeout(searchTimeout);
@@ -75,12 +75,12 @@ searchField.addEventListener("input", function() {
                     items.push(searchItem.querySelector("[data-search-toggler]"));
                 }
 
-                    addEventOnElement(items,"click", function() {
+                    addEventOnElements(items,"click", function() {
                     toggleSearch();
                     searchResult.classList.remove("active");
                 })
             });
-        }, searchTimeOutDuration );
+        }, searchTimeoutDuration );
     }
 });
 
@@ -382,7 +382,7 @@ export const updateWeather = function (lat, lon) {
                     dt: dateTimeUnix,
                     main: {temp},
                     weather,
-                    wind: { deg, windDirection, speed: windSpeed}
+                    wind: { deg: windDirection, speed: windSpeed}
                 } = data
 
                 const [{icon, description}] = weather
