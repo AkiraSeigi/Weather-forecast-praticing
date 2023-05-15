@@ -62,20 +62,20 @@ searchField.addEventListener("input", function() {
                     searchItem.innerHTML =  `
                     <span class="m-icon"> location_on</span>
 
-                    <div>
-                        <p class="item-title">${name}</p>
-                        <p class="labe-2 item-subtitle">${state || ""} ${country}</p>
-                    </div>
+                        <div>
+                            <p class="item-title">${name}</p>
+                            <p class="labe-2 item-subtitle">${state || ""} ${country}</p>
+                        </div>
 
-                    <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state"
-                    aria-label= "${name} weather" data-search-toggler></a>
+                        <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state"
+                        aria-label= "${name} weather" data-search-toggler></a>
                     `;
 
-                    searchResult.querySelector("[data-search-list]").appendChild (searchItem);
+                    searchResult.querySelector("[data-search-list]").appendChild(searchItem);
                     items.push(searchItem.querySelector("[data-search-toggler]"));
                 }
 
-                addEventOnElement(items,"click", function() {
+                    addEventOnElement(items,"click", function() {
                     toggleSearch();
                     searchResult.classList.remove("active");
                 })
@@ -97,7 +97,7 @@ const errorContent = document.querySelector("[data-error-content]");
 */
 
 export const updateWeather = function (lat, lon) {
-    loading.style.display = "grid";
+    // loading.style.display = "grid";
     container.style.overflowY = "hidden";
     container.classList.remove("fade-in");
     errorContent.style.display = "none";
@@ -127,10 +127,10 @@ export const updateWeather = function (lat, lon) {
         const {
             weather,
             dt: dateUnix,
-            sys: {sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
+            sys: {sunrise: sunriseUnixUTC,  sunset: sunsetUnixUTC },
             main: {temp, feels_like, pressure, humidity},
             visiblity,
-            timezone, 
+            timezone 
         } = currentWeather;
         const [{description, icon}] = weather;
 
