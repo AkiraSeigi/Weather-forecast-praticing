@@ -2,15 +2,28 @@
 'use strict';
 
 const api_key = "bef65ba1f876aa17d8053796d815d7b9";
- 
+
+
+
+
+
 
 export const fetchData = function (URL, callback) {
     fetch(`${URL}&appid=${api_key}`)
     .then(res => res.json())
-    .then(data => callback(data));  
+    .then(data =>  callback(data));  
 }
 
-export const url= {
+
+// const URL = {
+//     test: function () {
+//       const api_key = "bef65ba1f876aa17d8053796d815d7b9";
+//       const city = "New York";
+//       return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+//     }
+//   };
+
+export const url = {
     currentWeather(lat, lon) {
         return `https://api.openweathermap.org/data/2.5/weather?${lat}&${lon}&units=metric`
       },

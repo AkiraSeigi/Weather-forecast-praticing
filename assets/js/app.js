@@ -97,7 +97,7 @@ const errorContent = document.querySelector("[data-error-content]");
 */
 
 export const updateWeather = function (lat, lon) {
-    // loading.style.display = "grid";
+    loading.style.display = "grid";
     container.style.overflowY = "hidden";
     container.classList.remove("fade-in");
     errorContent.style.display = "none";
@@ -129,10 +129,11 @@ export const updateWeather = function (lat, lon) {
             dt: dateUnix,
             sys: {sunrise: sunriseUnixUTC,  sunset: sunsetUnixUTC },
             main: {temp, feels_like, pressure, humidity},
-            visiblity,
+            visibility,
             timezone 
         } = currentWeather;
         const [{description, icon}] = weather;
+    
 
         const card = document.createElement("div");
         card.classList.add("card", "card-lg", "current-weather-card");
@@ -314,7 +315,7 @@ export const updateWeather = function (lat, lon) {
 
                                 <span class="m-icon">visibility</span>
 
-                                <p class="title-1">${visiblity / 1000}<small>km</small></p>
+                                <p class="title-1">${visibility / 1000}<small>km</small></p>
 
                             </div>
 
