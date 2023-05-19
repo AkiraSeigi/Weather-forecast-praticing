@@ -31,12 +31,19 @@
     <!-- 
         JS link
     -->
-    <!-- <script src="./assets/js/app.js" type="module"></script>
-    <script src="./assets/js/route.js" type="module"></script> -->
+    <script src="./assets/js/app.js" type="module"></script>
+    <script src="./assets/js/route.js" type="module"></script>
 
 </head>
 <body>
-    
+    <!-- 
+        BACKGROUND IMAGE 
+    -->
+    <img
+    class="bg"
+    src="/assets/images/night.jpg"
+    alt="" id="bgimg"
+    >
     <!-- 
         - HEADER !!!
     -->
@@ -47,7 +54,8 @@
                 <img src="./assets/images/logo.png" width="364" height="58" alt="logo">
             </a>
 
-            <div class="search-view active " data-search-view>
+            <div class="search-view" data-search-view>
+
                 <div class="search-warpper">
                     <input type="search" name="search" placeholder="Search city..."
                     autocomplete="off" class="search-field" data-search-field>
@@ -74,7 +82,10 @@
                     <span class="m-icon">my_location</span>
                     <span class="span" >Current Location</span>
                 </a>
+                <img src="./assets/images/dark theme icon/sun.png" id="switch">
             </div>
+
+            
 
         </div>
     </header>
@@ -162,13 +173,35 @@
 
         <p class="body-1">Page not found!</p>
 
-        <a href="#" class="btn-primary">
+        <a href="#/weather?lat=51.5073219&lon=-0.1276474" class="btn-primary">
             
             <span class="span">Go Home</span>
         </a>
     </section>
     
-  
+  <script>
+      
+          
+
+        var dark = document.getElementById("switch");
+
+        var toggle= document.getElementById("bgimg")
+
+        dark.onclick = function () {
+        document.body.classList.toggle("dark-theme");
+        
+        var bodyElement = document.querySelector('body');
+        var isDarkTheme = document.body.classList.contains("dark-theme");
+
+        if (isDarkTheme) {
+            toggle.src = "/assets/images/day.jpg"
+            dark.src = "./assets/images/dark theme icon/moon.png";
+        } else {
+            toggle.src = "/assets/images/night.jpg"
+            dark.src = "./assets/images/dark theme icon/sun.png";
+        }
+        };
+  </script>
 
 
 </body>

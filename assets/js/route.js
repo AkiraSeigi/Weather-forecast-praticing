@@ -25,6 +25,8 @@ const routes = new Map([
     ["/weather", searchedLocation]
 ]);
 
+
+// Check and split the URL part then assign it. 
 const checkHash = function() {
     const requestURL = window.location.hash.slice(1);
 
@@ -33,6 +35,7 @@ const checkHash = function() {
     routes.get(route) ? routes.get(route)(query) : error404();
 }
 
+// Check the hash if it empty or not 
 window.addEventListener("hashchange", checkHash);
 
 window.addEventListener("load", function(){ 
