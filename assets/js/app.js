@@ -12,7 +12,7 @@ import *as module from "./module.js";
 */
 
 const addEventOnElements = function (elements, eventType, callback) {
-    for (const element of elements) element.addEventListener(eventType, callback);
+    for (const element of elements) element.addEventListener(eventType, callback); 
 }
 
 /*
@@ -20,9 +20,10 @@ const addEventOnElements = function (elements, eventType, callback) {
 */
 
 const searchView = document.querySelector("[data-search-view]");
-const searchTogglers =  document.querySelectorAll("[data-search-toggler]");
+const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 
 const toggleSearch = () => searchView.classList.toggle("active");
+
 addEventOnElements(searchTogglers, "click", toggleSearch);
 
 /*
@@ -50,9 +51,8 @@ searchField.addEventListener("input", function() {
                 searchField.classList.remove("searching");
                 searchResult.classList.add("active");
                 searchResult.innerHTML = `
-                <ul class="view-list" data-search-list> </ul>
+                <ul class="view-list" data-search-list></ul>
                 `;
-
                 const /* {NodeList} | [] */ items = [];
 
                 for( const {name, lat, lon, country, state} of locations) {
@@ -64,7 +64,7 @@ searchField.addEventListener("input", function() {
 
                         <div>
                             <p class="item-title">${name}</p>
-                            <p class="labe-2 item-subtitle">${state || ""} ${country}</p>
+                            <p class="label-2 item-subtitle">${state || ""} ${country}</p>
                         </div>
 
                         <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state"
@@ -83,6 +83,8 @@ searchField.addEventListener("input", function() {
         }, searchTimeoutDuration );
     }
 });
+
+
 
 const container = document.querySelector("[data-container]");
 const loading = document.querySelector("[data-loading]");
@@ -123,16 +125,16 @@ export const updateWeather = function (lat, lon) {
         CURRENT WEATHER SECTION
     */
 
-    fetchData(url.currentWeather(lat, lon), function(currentWeather) {
-        const {
-            weather,
-            dt: dateUnix,
-            sys: {sunrise: sunriseUnixUTC,  sunset: sunsetUnixUTC },
-            main: {temp, feels_like, pressure, humidity},
-            visibility,
-            timezone 
-        } = currentWeather;
-        const [{description, icon}] = weather;
+        fetchData(url.currentWeather(lat, lon), function(currentWeather) {
+            const {
+                weather,
+                dt: dateUnix,
+                sys: {sunrise: sunriseUnixUTC,  sunset: sunsetUnixUTC },
+                main: {temp, feels_like, pressure, humidity},
+                visibility,
+                timezone 
+            } = currentWeather;
+            const [{description, icon}] = weather;
     
 
         const card = document.createElement("div");
@@ -484,7 +486,9 @@ export const updateWeather = function (lat, lon) {
 
 }
 
-export const error404 = function () {}
+export const error404 = function () {
+    errorContent.style.display = "flex";
+}
 
 
 
